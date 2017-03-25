@@ -1,9 +1,12 @@
 #!/usr/bin/env ruby
 
+$stdout.print '(relp) -> '
+
 $stdin.each_line do |ln|
   pid = fork {
     exec ln
   }
 
   Process.wait pid
+  $stdout.print '(relp) -> '
 end
